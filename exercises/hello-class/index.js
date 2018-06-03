@@ -1,5 +1,5 @@
 var words = "test test test";
-function printWords(){
+printWords => {
     return words;
 }
 
