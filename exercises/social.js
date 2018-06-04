@@ -1,7 +1,7 @@
 var Student = {
   name: "Darlene",
   age: 28,
-  Pet: [
+  pets: [
     {
       name: "Eddie",
       type: "cat",
@@ -27,7 +27,7 @@ var Student = {
       }
     }
   ],
-  Friends: [
+  friends: [
     {
       name: "Sarah",
       age: 26,
@@ -38,7 +38,7 @@ var Student = {
       name: "Irene",
       age: 28,
       location: "Indy",
-      Pet: [
+      pets: [
         {
           name: "Eddie",
           type: "cat",
@@ -74,5 +74,5 @@ var Student = {
   }
 }
 
-Student.Pet[0].speak();
+Student.pets[0].speak();
 //Student.Friend.speak();
