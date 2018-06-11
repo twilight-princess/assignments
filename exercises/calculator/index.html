@@ -5,19 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="app.js" async></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
 </head>
 <body>
     <form name="calculator">
-        <fieldset>
-            <div>Please enter two numbers you would like to add.</div>
-            <input type="number" value="x">
-            <input type="number" value="y">
-            <input name="add" type="button" value="Add">
-            <div id="result"></div>
-        </fieldset>
-        <fieldset></fieldset>
-        <fieldset></fieldset>
+        <div>Please enter two numbers.</div>
+        x: <input type="number" id="x">
+        y: <input type="number" id="y">
+        <br>
+        <input name="add" type="button" value="Add">
+        <input name="subtract" type="button" value="Subtract">
+        <input name="multiply" type="button" value="Multiply">
+        <div id="addition"></div>
+        <div id="subtraction"></div>
+        <div id="multiplication"></div>
+        <input type="reset" value="Reset">
     </form>
+    <script src="app.js"></script>
 </body>
 </html>
