@@ -1,0 +1,53 @@
+Checklist:
+
+    - name in title
+    - GitHub ID
+    - portfolio site URL listed
+    - phone number and email (mail address can be good or bad)
+    - job title if it's relevant
+
+Objective: 
+
+    - can include job title and possibly the company applying for
+    - not required
+    - or profile
+    - include how you're going to benefit them 
+
+Skills: 
+
+    - Are all of my technical skills listed?
+    - Soft skills can be demonstrated in previous work experience
+
+Web Development:
+
+    - Include at least two projects with
+        - Project title
+        - How the project works/features
+        - All the technology used to build the project
+    - Are the projects provided deployed and linked?
+
+Professional Experience:
+
+    - Keep work recentish
+    - Job descriptions should begin with an accomplishment and then the action
+    - Work experience should be measurable to prove claims.
+        - Numbers
+        - Percentages
+        - Metrics
+        - Quantifiable statistics that are time-bound, measurable, relevant and specific
+    - Easy to read accomplishments/bullets
+    - Make the accomplishments relevant to the job
+    - ~ 3 bullets per job
+
+Education:
+
+    - Education should be at the end if not currently studying relevant major
+
+Final Format and Review:
+
+    - Formatted to fit on one page
+    - Should be easy to scan at a glance, not paragraphs
+    - Avoid fluffy phrases and unsupported statements
+    - Double check grammar and spelling
+
+Applicant Tracking Systems?

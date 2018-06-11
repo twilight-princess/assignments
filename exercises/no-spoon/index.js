@@ -1,66 +1,51 @@
-var computer = 
-{
+var computer = {
 	number: 1,
 	bool: true,
 	str: "mine",
-	method: function()
-	{
-		if (this.bool)
-		{
+	method: function () {
+		if (this.bool) {
 			console.log("This " + this.number + " computer is " + this.str);
 		}
 	}
 }
-var bag = 
-{
+var bag = {
 	number: 2,
 	bool: false,
 	color: "black",
-	method: function()
-	{
+	method: function () {
 		number++;
 	}
 }
-var desk =
-{
+var desk = {
 	number: 2,
 	bool: true,
 	str: "is a desk",
-	method: function()
-	{
+	method: function () {
 		console.log("do the thing");
 	}
 }
-var Ring =
-{
+var Ring = {
 	number: 10,
 	bool: true,
 	str: "bslfkjsdlfkjdslkfj",
-	wear: function()
-	{
+	wear: function () {
 		do stuff;
 		while (this.bool);
-	} 
+	}
 }
-var Door = 
-{
+var Door = {
 	number: 2,
-	isOpen: true, 
+	isOpen: true,
 	str: "The door is ",
-	checkStatus: function()
-	{
-		if (isOpen)
-		{
+	checkStatus: function () {
+		if (isOpen) {
 			console.log(str + "open");
-		}
-		else
-		{
+		} else {
 			console.log(str + "closed");
 		}
 	}
 }
-/*var 
-{
+/*var {
 	number:
 	bool: 
 	str:
@@ -69,8 +54,7 @@ var Door =
 
 	}
 }
-var 
-{
+var {
 	number:
 	bool: 
 	str:
@@ -79,8 +63,7 @@ var
 
 	}
 }
-var 
-{
+var {
 	number:
 	bool: 
 	str:
@@ -89,8 +72,7 @@ var
 
 	}
 }
-var 
-{
+var {
 	number:
 	bool: 
 	str:
@@ -99,8 +81,7 @@ var
 
 	}
 }
-var 
-{
+var {
 	number:
 	bool: 
 	str:
