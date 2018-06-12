@@ -1,10 +1,10 @@
 var rs = require('readline-sync')
 var backpack = []
 var rewards = {
-	attack: increase strength, 
-	health: recover a heart, 
-	defense: insrease defense, 
-	gold: why?
+	attack: "increase strength", 
+	health: "recover a heart", 
+	defense: "insrease defense", 
+	gold: "why?"
 }
 var animals = ["a rattle snake", "a pack of small child", "a ferral cat", "a cute puppy"]
 var enemies = ["an alien", "a goblin", "a mini-zerg", "a mountain lion"]

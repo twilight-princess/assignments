@@ -1,0 +1,76 @@
+* {
+    box-sizing: border-box; 
+}
+
+@font-face {
+    font-family: "Super Mario 256 Regular";
+    src: url(/exercises/luigi-flex/SuperMario256.ttf);   
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-family: "Super Mario 256 Regular";
+    color: red;
+    font-size: 50px;
+    text-align: center;
+}
+
+div.title {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    background-color: white;
+    padding: 20px;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(241, 218, 4);
+    text-align: left;
+    height: 20vh;
+    width: 100%;
+    justify-content: center;
+    padding-left: 50px;
+}
+
+main {
+    width: 100%;
+    background-color: red;
+
+}
+img.luigi {
+    justify-content: center;
+    padding: 25px;
+    width: 30%;
+    background-color: red;
+}
+.container {
+    width: 100%;
+    background-color: white;
+    justify-content: center;
+}
+div.about {
+    font-size: 25px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    background-color: white;
+    padding: 10px;
+    width: 50%;
+    margin: auto;
+}
+
+footer {
+    background-color: rgb(241, 218, 4);
+    height: 18vh;
+}
+img.mushroom {
+    display: flex;
+    padding: 5px;
+    float: right;
+    width: 8%;
+}
