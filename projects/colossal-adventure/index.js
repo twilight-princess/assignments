@@ -1,6 +1,8 @@
 var rs = require('readline-sync')
 var rooms = require("./rooms.json")
-var reward = {
+var reward = {}
+var backpack = []
+var rewards = {
 	attack: "increase strength", 
 	health: "recover a heart", 
 	defense: "insrease defense", 
