@@ -10,6 +10,7 @@ function passwordGen(numb) {
                 return ascii;
             }
         }
+        removeEmpty();
         password += String.fromCharCode(ascii);
         console.log(ascii)
     }
