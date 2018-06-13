@@ -20,7 +20,7 @@ var instruction = {
 	done: "d"
 }
 
-function main() {
+
 
 	function getUserName() {
 		var player = rs.question('To begin, please enter your name: ')
@@ -95,7 +95,7 @@ function main() {
 	getUserName()
 	instructMe()
 	storyTime()
-}
+
 
 
 main()
