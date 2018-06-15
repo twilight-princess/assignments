@@ -14,4 +14,3 @@ function countChar(str) {
 }
 
 countChar("Darlene")
-

@@ -1,0 +1,62 @@
+{
+    "appetizers": [
+        {
+            "name": "spinach dip",
+            "ingredients": ["spinach", "dip"],
+            "description": "You should try the spinach dip. This is a description. It's good, bruh"
+        },
+        {
+            "name": "nachos",
+            "ingrdients": ["chips", "cheese", "jalapenos"],
+            "description": "They're nachos..."
+        }
+    ],
+    "cold sandwiches": [
+        {
+            "name": "BLT",
+            "ingredients": ["bacon", "lettuce", "tomato"],
+            "description": "a cold sandwich with bacon lettuce and tomato" 
+        },
+        {
+            "name": "Turkey on Rye",
+            "ingredients": ["turkey", "mayo", "bread"],
+            "description": "A turkey sandwich on rye bread with mayo"
+        }
+    ],
+    "hot sandwiches": [
+        {
+            "name": "Bullafo Bill",
+            "ingredients": ["fried chicken", "buffalo sauce", "bill"],
+            "description": "There isn't really \"Bill\" on the sandwich"
+        },
+        {
+            "name": "hot tamale",
+            "ingredients": ["heat", "tamales"],
+            "desciption": "I don't even know"
+        }
+    ],
+    "desserts": [
+        {
+            "name": "Hot Fudge Sunday",
+            "ingredients": ["fudge", "ice cream", "nuts"],
+            "description": "It's spelled wrong on purpose. It's only available on Sunday!"
+        },
+        {
+            "name": "Blondie",
+            "ingredients": ["flour", "sugar", "a blonde"],
+            "description": "canabalism"
+        }
+    ],
+    "drinks": [
+        {
+            "name": "beer",
+            "ingredients": ["wheat", "water", "hops", "malt"],
+            "description": "beer"
+        },
+        {
+          "name": "margarita",
+          "ingredients": ["tequila", "lime", "salt"],
+          "description": "classic margarita"  
+        }
+    ]
+}
