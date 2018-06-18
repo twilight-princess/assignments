@@ -1,5 +1,7 @@
 var rs = require('readline-sync')
-var backpack = []
+
+var backpack = [10]
+
 var rewards = {
 	attack: "increase strength", 
 	health: "recover a heart", 
