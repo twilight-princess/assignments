@@ -1,0 +1,36 @@
+.container {
+    display: grid;
+    /* number of columns written by width. 
+    EX) 10px 10px would make two columns tenpx wide. 
+    Can use auto for a column to take up leftover space
+    Can also use fractions 1fr is one fraction or one part
+    Can use repeat(number of columns, fraction) EX) repeat(10, auto)*/
+    grid-template-columns: 1fr;
+    /* Can use repeat(number of rows, size) if they're all equal 
+    rows are pretty much the same as columns but cannot use fr. Instead it's vh*/
+    grid-template-rows: 10vh 90vh;
+    /* OR grid template to combine them */
+    /* padding */
+    grid-gap: 0px;
+    /* can use "grid-area" in other sections of css and set them to these. "." will be counted as an empty space
+    must form a rectangle */
+    grid-template-areas:
+    "m m h h h h h h h h h h"
+    "m m c c c c c c c c c c"
+    "m m f f f f f f f f f f";
+    /*auto-fit keyword can be used for sizing in responsive webpage*/
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-auto-rows: 100px;
+}
+.header {
+    /* width. The following would end at the end of the second column. 4 would end before the 4th column */
+    /* grid-column: combines the start and finish.: 1/3; 
+    can use negative numbers*/
+    grid-column-start: 1;
+    grid-column-end: 3;
+
+}
+.menu {
+    /* if I want it to always be certain width use span keyword*/
+    grid-column: 1/ span 2;
+}
