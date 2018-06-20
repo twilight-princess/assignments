@@ -1,7 +1,7 @@
 .container {
     display: grid;
     /* number of columns written by width. 
-    EX) 10px 10px would make two columns tenpx wide. 
+    EX) 10px 10px would make two columns ten px wide. 
     Can use auto for a column to take up leftover space
     Can also use fractions 1fr is one fraction or one part
     Can use repeat(number of columns, fraction) EX) repeat(10, auto)*/
