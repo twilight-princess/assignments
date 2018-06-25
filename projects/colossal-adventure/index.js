@@ -8,9 +8,29 @@ var rewards = {
 	defense: "insrease defense", 
 	gold: "why?"
 }
-var animals = ["a rattle snake", "a pack of small child", "a ferral cat", "a cute puppy"]
-var enemies = ["an alien", "a goblin", "a mini-zerg", "a mountain lion"]
-var attacks = ["charm", "cry", "kick", "punch"]
+function Character(name, hp, ap,) {
+	this.name = name;
+	this.hp = 10;
+	this.hp = 10;
+}
+function Enemy extends Character() {
+	this.evilLaugh = "MUAHAHAH"
+}
+function Player extends Character() {
+	this.backpack = ["knife", "water"]
+}
+var attacks = [{
+	"charm": [{
+		"It worked! ${Character} thinks you're charming!": ["So charming that ${Character} decides to eat you", "So charming that ${Character} decides to let you go"],
+		"Nice try. ${Character} just laughed": ["${Character} laughed so hard that they fell onto you!", "${Character} laughed SO hard that they fell and accidentally landed in such an awkward way that they died instantly"] 
+	}], 
+	"cry": [{
+		"It actually worked...": ["I cannot believe it, but ${Character} felt bad and ran away", "${Character} felt so bad that they cried too...In fact, they cried so much that you drowned in their tears"]
+		"It didn't work": ["Your crying had absolutely no effect on ${Character}", "${Character} laughs at your crying. As the story master here, I think he's a jerk so I kill him off and you go free. Good job, you patheticed your way out!"] 
+	}],
+	"kick": [], 
+	"punch": []
+}]
 var run = ["escaped", "were caught"]
 var chance = Math.floor(Math.random())
 var isSuccess = true;
