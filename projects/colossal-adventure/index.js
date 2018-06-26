@@ -1,23 +1,29 @@
 var rs = require('readline-sync')
 
-var backpack = [10]
-
-var rewards = {
+var reward = {
 	attack: "increase strength", 
 	health: "recover a heart", 
 	defense: "insrease defense", 
 	gold: "why?"
 }
-function Character(name, hp, ap,) {
-	this.name = name;
-	this.hp = 10;
-	this.hp = 10;
+class Character {
+	constructor(name, hp, ap) {
+	this.name = name
+	this.hp = 10
+	this.ap = 10
+	}
 }
-function Enemy extends Character() {
-	this.evilLaugh = "MUAHAHAH"
+class Enemy extends Character {
+	constructor(name, hp = 3, ap, evilLaugh) {
+		super(name, hp, ap)
+		this.evilLaugh = "MUAHAHAH"
+		this.item = item
+	}
 }
-function Player extends Character() {
+class Player extends Character {
+	constructor(name, hp, ap) {
 	this.backpack = ["knife", "water"]
+	}
 }
 var attacks = [{
 	"charm": [{
@@ -28,12 +34,14 @@ var attacks = [{
 		"It actually worked...": ["I cannot believe it, but ${Character} felt bad and ran away", "${Character} felt so bad that they cried too...In fact, they cried so much that you drowned in their tears"]
 		"It didn't work": ["Your crying had absolutely no effect on ${Character}", "${Character} laughs at your crying. As the story master here, I think he's a jerk so I kill him off and you go free. Good job, you patheticed your way out!"] 
 	}],
-	"kick": [], 
+	"kick": [{
+		
+	}], 
 	"punch": []
 }]
 var run = ["escaped", "were caught"]
 var chance = Math.floor(Math.random())
-var isSuccess = true;
+var isSuccess = true
 var HP = 10
 var instruction = {
 	walk: "w",
