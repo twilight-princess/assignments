@@ -7,10 +7,10 @@ var reward = {
 	gold: "why?"
 }
 class Character {
-	constructor(name, hp, ap) {
+	constructor(name, hp = 10, ap = 10) {
 	this.name = name
-	this.hp = 10
-	this.ap = 10
+	this.hp = hp
+	this.ap = ap 
 	}
 }
 class Enemy extends Character {
@@ -21,111 +21,123 @@ class Enemy extends Character {
 	}
 }
 class Player extends Character {
-	constructor(name, hp, ap) {
-	this.backpack = ["knife", "water"]
+	constructor(name, hp = 10, ap = 10) {
+		super(name, hp, ap)
+		this.backpack = ["knife", "water"]
 	}
 }
 var attacks = [{
 	"charm": [{
-		"It worked! ${Character} thinks you're charming!": ["So charming that ${Character} decides to eat you", "So charming that ${Character} decides to let you go"],
-		"Nice try. ${Character} just laughed": ["${Character} laughed so hard that they fell onto you!", "${Character} laughed SO hard that they fell and accidentally landed in such an awkward way that they died instantly"] 
+		"It worked! You're charming!": [`So charming that ${Character} decides to eat you`, `So charming that ${Character} decides to let you go`],
+		"Nice try.": [`${Character} laughed so hard that they fell onto you!`, `${Character} laughed SO hard that they fell and accidentally landed in such an awkward way that they died instantly`] 
 	}], 
 	"cry": [{
-		"It actually worked...": ["I cannot believe it, but ${Character} felt bad and ran away", "${Character} felt so bad that they cried too...In fact, they cried so much that you drowned in their tears"]
-		"It didn't work": ["Your crying had absolutely no effect on ${Character}", "${Character} laughs at your crying. As the story master here, I think he's a jerk so I kill him off and you go free. Good job, you patheticed your way out!"] 
+		"It actually worked...": [`I cannot believe it, but ${Character} felt bad and ran away`, `${Character} felt so bad that they cried too...In fact, they cried so much that you drowned in their tears`],
+		"It didn't work": [`Your crying had absolutely no effect on ${Character}`, `${Character} laughs at your crying. As the story master here, I think he's a jerk so I kill him off and you go free. Good job, you patheticed your way out!`] 
 	}],
 	"kick": [{
-		
+		"It worked": `You missed, but ${Character} ran away at your threat of violence...`,
+		"It didn't work": "You missed, dude..."
 	}], 
-	"punch": []
+	"punch": [{
+		"Wow, you're brave": "It worked. You win.",
+		"Wow, that's original...": `${Character} didn't even respond to your violence.`
+	}]
 }]
 var run = ["escaped", "were caught"]
 var chance = Math.floor(Math.random())
 var isSuccess = true
-var HP = 10
 var instruction = {
 	walk: "w",
-	attack: "a",
-	sit: "s",
+	analyze: "a",
+	search: "s",
 	done: "d"
 }
-
-
-
-	function getUserName() {
-		var player = rs.question('To begin, please enter your name: ')
-		var correct = rs.keyInYN('You entered: \"' + player + '\". Is this correact? ')
-		if (!correct) {
-			console.log('Sorry. Let\'s try again.')
-			getUserName()
-		}
+function getUserName() {
+	var name = rs.question('\nTo begin, please enter your name: ')
+	var correct = rs.keyInYN('\nYou entered \"' + name + '\". Is this correct? ')
+	if (!correct) {
+		console.log('\nSorry. Let\'s try again.')
+		getUserName()
 	}
-	
-	console.log('\nHello, adventurer! This is a quest to save the universe from the evil Emporer Zerg! You\'re not Buzz Lightyear, but you know a guy who knows a guy who met him once. Anyway, Zerg sent his minions to your city to find you. Try to escape them without dying! MUAHAHAHA! By the way, I only know this because I work for Zerg! BUAHAMAMAUAUAUAUAUAUA! Good Luck!')
-	
-	function instructMe() {
-		var instruct = rs.keyInYN('\nWould you like a list of instructions?')
-		if (instruct) {
-			instructMe()
-	}
+	var adventurer = new Player(name, 10, 10)
+	return adventurer
+}
+function instructMe() {
+	var instruct = rs.keyInYN('\nWould you like a list of instructions?\n')
+	if (instruct) {
 		console.log('\nTo perform the actions, type the corresponding keys. \n')
-		console.log(instruction) 
-	}
-	function print() {
-		console.log("Adventurer: " + player + "\nHearts: " + HP + "Backpack: " + backpack)
-	}
-	function walk() {
-		chance *= 100
-		if (chance < 50) {	
-			isSuccess = false
+		for (var key in instruction) {
+			console.log('The \"' + instruction[key] + '\" key to ' + key + '.\n') 
 		}
-		if (!isSuccess) {
-			console.log('You were unsuccessful. \n')
+		rs.keyInPause()
+	}
+
+}
+function storyTime() {
+	console.log('\nHello, adventurer! This is a quest to save the universe from the evil Emporer Zerg! You\'re not Buzz Lightyear, but you know a guy who knows a guy who met him once. Anyway, Zerg sent his minions to your city to find you. Try to escape them without dying! MUAHAHAHA! By the way, I only know this because I work for Zerg! BUAHAMAMAUAUAUAUAUAUA! Good Luck!\n')
+	rs.keyInPause()
+	console.log('\nYou awaken in a dark room. It smells terrible. You fumble around to find a wall. \n')
+	var move = rs.keyInSelect(instruction, 'What do you do? \n')
+	if (move == "w") {
+		console.log('You walk around the room trying to find a light.')
+		walk()
+		if (isSuccess) {
+			console.log('You find a light! You look around the room. You\'re in an abondoned house it seems. You keep looking around the room. In the other corner you notice something moving...')
 		} else {
-			console.log('=D \n')
+			HP--
+			console.log('OW! You stubben your toe! Your injury causes you to lose a heart. Now you only have ' + HP)
 		}
-	}	
-	function run() {
+	} else if (move == "a") {
+		console.log('You swing your arms! The air better watch out!')
+		fught() 
+		if (isSuccess) {
+			console.log('Surprisingly, you managed to hit something...!') 
+		}
+	}	else if (move == "s") {
+
+	}	else if (move == "d") {
+			console.log('It\'s been real. Late.')
+	}
 	
+	
+}
+function walk() {
+	chance *= 100
+	if (chance < 50) {	
+		isSuccess = false
 	}
-	function fight() {
-		chance *= 100
-		if (chance < 50) {	
-			isSuccess = false
-		}
-		if (!isSuccess) {
-			console.log('You were unsuccessful. \n')
-		} else {
-			console.log('=D \n')
-		}
-
+	if (!isSuccess) {
+		console.log('You were unsuccessful. \n')
+	} else {
+		console.log('=D \n')
 	}
-	function storyTime() {
-		console.log('\nYou awaken in a dark room. It smells terrible. You fumble around to find a wall. \nWhat do you do? \n')
-		var move = rs.question(instruction)
-		if (move == "w") {
-			console.log('You walk around the room trying to find a light.')
-			walk()
-			if (isSuccess) {
-				console.log('You find a light! You look around the room. You\'re in an abondoned house it seems. You keep looking around the room. In the other corner you notice something moving...')
-			} else {
-				HP--
-				console.log('OW! You stubben your toe! Your injury causes you to lose a heart. Now you only have ' + HP)
-			}
-		} else if (move == "a") {
-			console.log('You swing your arms! The air better watch out!')
-			fught() 
-			if (isSuccess) {
-				console.log('Surprisingly, you managed to hit something...!') 
-		}	
-		}
-		
+}	
+function analyze() {
+	console.log("Adventurer: " + adventurer + "\nHearts: " + Player.hp + "Backpack: " + Player.backpack)
+}
+function search() {
+
+}
+function done() {
+
+}
+function run() {
+}
+function fight() {
+	chance *= 100
+	if (chance < 50) {	
+		isSuccess = false
+	}
+	if (!isSuccess) {
+		console.log('You were unsuccessful. \n')
+	} else {
+		console.log('=D \n')
 	}
 
-	getUserName()
-	instructMe()
-	storyTime()
+}
 
+getUserName()
+instructMe()
+storyTime()
 
-
-main()
