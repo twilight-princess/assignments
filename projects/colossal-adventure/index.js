@@ -111,11 +111,20 @@ function done() {
 function run() {
 }
 function fight() {
+<<<<<<< HEAD
 	if (!isSuccess()) {
+=======
+	chance *= 100
+	if (chance < 50) {	
+		isSuccess = false
+	}
+	if (!isSuccess) {
+>>>>>>> added readlinesync stuff
 		console.log('You were unsuccessful. \n')
 	} else {
 		console.log('=D \n')
 	}
+<<<<<<< HEAD
 }
 function choice() {
 	var move = rs.question('What do you do? \n')
@@ -145,3 +154,12 @@ function choice() {
 }
 
 module.export getUserName()
+=======
+
+}
+
+getUserName()
+instructMe()
+storyTime()
+
+>>>>>>> added readlinesync stuff
