@@ -1,6 +1,5 @@
 var rs = require('readline-sync')
 var rooms = require("./rooms.json")
-var reward = {}
 var backpack = []
 var rewards = {
 	attack: "increase strength", 
@@ -112,6 +111,7 @@ function run() {
 }
 function fight() {
 <<<<<<< HEAD
+<<<<<<< HEAD
 	if (!isSuccess()) {
 =======
 	chance *= 100
@@ -120,10 +120,14 @@ function fight() {
 	}
 	if (!isSuccess) {
 >>>>>>> added readlinesync stuff
+=======
+	if (!isSuccess()) {
+>>>>>>> update
 		console.log('You were unsuccessful. \n')
 	} else {
 		console.log('=D \n')
 	}
+<<<<<<< HEAD
 <<<<<<< HEAD
 }
 function choice() {
@@ -156,10 +160,38 @@ function choice() {
 module.export getUserName()
 =======
 
+=======
+>>>>>>> update
+}
+function choice() {
+	var move = rs.question('What do you do? \n')
+	if (move == "w") {
+		//console.log('You walk around the room trying to find a light.')
+		//walk()
+		var chance = Math.random() * 10
+		if (chance > rooms[i].probability) {
+			console.log(rooms[i].w[0])
+		} else {
+			console.log(rooms[i].w[1])
+		}
+	} else if (move == "a") {
+		console.log('You swing your arms! The air better watch out!')
+		analyze() 
+		if (isSuccess()) {
+			console.log('Surprisingly, you managed to hit something...!') 
+		}
+	}	else if (move == "s") {
+
+	}	else if (move == "d") {
+			console.log('It\'s been real. Late.')
+	} else {
+		console.log("Please choose a valid option. \n")
+		choice()
+	}
 }
 
-getUserName()
-instructMe()
-storyTime()
-
+<<<<<<< HEAD
 >>>>>>> added readlinesync stuff
+=======
+module.export getUserName()
+>>>>>>> update
