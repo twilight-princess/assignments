@@ -1,0 +1,16 @@
+
+  {
+    "name": "start",
+    "description": "testathon",
+    "enemy": "sleeping evil monster",
+    "probability": 5,
+    "moves": [
+      {
+        "w": ["You did the thing!", "You fail"],
+        "a": "Your info: \n",
+        "s": ["you found the thing", "you didn't find the thing"],
+        "d": "Wow, you quit early! Bye."
+      }
+    ]
+  }
+

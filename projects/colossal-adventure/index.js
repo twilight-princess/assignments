@@ -1,5 +1,5 @@
 var rs = require('readline-sync')
-
+var rooms = require("./rooms.json")
 var reward = {
 	attack: "increase strength", 
 	health: "recover a heart", 
@@ -26,6 +26,9 @@ class Player extends Character {
 		this.backpack = ["knife", "water"]
 	}
 }
+
+
+
 var attacks = [{
 	"charm": [{
 		"It worked! You're charming!": [`So charming that ${Character} decides to eat you`, `So charming that ${Character} decides to let you go`],
@@ -45,7 +48,6 @@ var attacks = [{
 	}]
 }]
 var run = ["escaped", "were caught"]
-var chance = Math.floor(Math.random())
 var isSuccess = true
 var instruction = {
 	walk: "w",
@@ -53,24 +55,25 @@ var instruction = {
 	search: "s",
 	done: "d"
 }
+var adventurer
+
 function getUserName() {
 	var name = rs.question('\nTo begin, please enter your name: ')
 	var correct = rs.keyInYN('\nYou entered \"' + name + '\". Is this correct? ')
 	if (!correct) {
-		console.log('\nSorry. Let\'s try again.')
-		getUserName()
+		setTimeout(console.log('\nSorry. Let\'s try again.'), 3000)
+		setTimeout(getUserName(), 30000)
 	}
-	var adventurer = new Player(name, 10, 10)
-	return adventurer
+	adventurer = new Player(name, 10, 10)
 }
 function instructMe() {
-	var instruct = rs.keyInYN('\nWould you like a list of instructions?\n')
+	var instruct = setTimeout(rs.keyInYN('\nWould you like a list of instructions?\n'), 5000)
 	if (instruct) {
 		console.log('\nTo perform the actions, type the corresponding keys. \n')
 		for (var key in instruction) {
 			console.log('The \"' + instruction[key] + '\" key to ' + key + '.\n') 
 		}
-		rs.keyInPause()
+		setTimeout(rs.keyInPause(), 10000)
 	}
 
 }
@@ -78,43 +81,24 @@ function storyTime() {
 	console.log('\nHello, adventurer! This is a quest to save the universe from the evil Emporer Zerg! You\'re not Buzz Lightyear, but you know a guy who knows a guy who met him once. Anyway, Zerg sent his minions to your city to find you. Try to escape them without dying! MUAHAHAHA! By the way, I only know this because I work for Zerg! BUAHAMAMAUAUAUAUAUAUA! Good Luck!\n')
 	rs.keyInPause()
 	console.log('\nYou awaken in a dark room. It smells terrible. You fumble around to find a wall. \n')
-	var move = rs.keyInSelect(instruction, 'What do you do? \n')
-	if (move == "w") {
-		console.log('You walk around the room trying to find a light.')
-		walk()
-		if (isSuccess) {
-			console.log('You find a light! You look around the room. You\'re in an abondoned house it seems. You keep looking around the room. In the other corner you notice something moving...')
-		} else {
-			HP--
-			console.log('OW! You stubben your toe! Your injury causes you to lose a heart. Now you only have ' + HP)
-		}
-	} else if (move == "a") {
-		console.log('You swing your arms! The air better watch out!')
-		fught() 
-		if (isSuccess) {
-			console.log('Surprisingly, you managed to hit something...!') 
-		}
-	}	else if (move == "s") {
-
-	}	else if (move == "d") {
-			console.log('It\'s been real. Late.')
-	}
-	
-	
+	choice()
 }
+
+function isSuccess(failPercent) {
+	return (Math.floor(Math.random() * 100) > failPercent) ? true : false
+}
+
 function walk() {
-	chance *= 100
-	if (chance < 50) {	
-		isSuccess = false
-	}
-	if (!isSuccess) {
-		console.log('You were unsuccessful. \n')
+	if (isSuccess()) {
+		console.log('You find a light! You look around the room. You\'re in an abondoned house it seems. You keep looking around the room. In the other corner you notice something moving...')
 	} else {
-		console.log('=D \n')
+		adventurer.hp--
+		console.log('OW! You stubben your toe! Your injury causes you to lose a heart. Now you only have ' + adventurer.hp)
 	}
 }	
 function analyze() {
-	console.log("Adventurer: " + adventurer + "\nHearts: " + Player.hp + "Backpack: " + Player.backpack)
+	console.log("Adventurer: " + adventurer.name + "\nHearts: " + adventurer.hp + "\nBackpack: " + adventurer.backpack)
+
 }
 function search() {
 
@@ -125,19 +109,37 @@ function done() {
 function run() {
 }
 function fight() {
-	chance *= 100
-	if (chance < 50) {	
-		isSuccess = false
-	}
-	if (!isSuccess) {
+	if (!isSuccess()) {
 		console.log('You were unsuccessful. \n')
 	} else {
 		console.log('=D \n')
 	}
+}
+function choice() {
+	var move = rs.question('What do you do? \n')
+	if (move == "w") {
+		//console.log('You walk around the room trying to find a light.')
+		//walk()
+		var chance = Math.random() * 10
+		if (chance > rooms[i].probability) {
+			console.log(rooms[i].w[0])
+		} else {
+			console.log(rooms[i].w[1])
+		}
+	} else if (move == "a") {
+		console.log('You swing your arms! The air better watch out!')
+		analyze() 
+		if (isSuccess()) {
+			console.log('Surprisingly, you managed to hit something...!') 
+		}
+	}	else if (move == "s") {
 
+	}	else if (move == "d") {
+			console.log('It\'s been real. Late.')
+	} else {
+		console.log("Please choose a valid option. \n")
+		choice()
+	}
 }
 
-getUserName()
-instructMe()
-storyTime()
-
+module.export getUserName()
