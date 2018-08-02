@@ -1,0 +1,113 @@
+```import React from 'react';
+
+// components
+import Form from "./shared/Form";
+import Toggler from "./shared/Toggler";
+
+function App() {
+    return (
+        <div>
+            <Toggler render={props => {
+                const { toggled, handleToggle } = props;
+                return (
+                    <div>
+                        <button onClick={handleToggle}>EDIT</button>
+                        {toggled && <Form inputs={{
+                            socialSecurity: "",
+                            cc: "",
+                            mothersMaidenName: ""
+                        }}
+                            submit={inputData => alert(JSON.stringify(inputData))}
+                            render={props => {
+                                const { handleSubmit, handleChange, inputs } = props;
+                                return (
+                                    <form onSubmit={handleSubmit}>
+                                        <input onChange={handleChange} value={inputs.socialSecurity} name="socialSecurity" type="text" />
+                                        <input onChange={handleChange} value={inputs.cc} name="cc" type="text" />
+                                        <input onChange={handleChange} value={inputs.mothersMaidenName} name="mothersMaidenName" type="text" />
+                                        <button>Submit</button>
+                                    </form>
+                                )
+                            }}
+                        />}
+                    </div>
+                )
+
+            }} />
+        </div>
+    )
+}
+
+export default App;```
+
+```import React, { Component } from "react";
+
+class Toggler extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            toggled: false
+        }
+        this.handleToggle = this.handleToggle.bind(this);
+    }
+    handleToggle() {
+        this.setState(prevState => {
+            return {
+                toggled: !prevState.toggled
+            }
+        })
+    }
+    render() {
+        return this.props.render({
+            handleToggle: this.handleToggle,
+            toggled: this.state.toggled
+        });
+    }
+}
+
+export default Toggler;```
+```import React, { Component } from 'react';
+
+
+class Form extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            inputs: props.inputs
+        }
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+    handleChange(e) {
+        const { name, value } = e.target;
+        this.setState(prevState => {
+            return {
+                inputs: {
+                    ...prevState.inputs,
+                    [name]: value
+                }
+            }
+        })
+    }
+    reset() {
+        this.setState({ inputs: this.props.inputs });
+    }
+    handleSubmit(e) {
+        e.preventDefault();
+        this.props.submit(this.state.inputs);
+        if(this.props.reset) this.reset();
+    }
+    render() {
+        return (
+            <div>
+                {this.props.render({
+                    inputs: this.state.inputs,
+                    handleSubmit: this.handleSubmit,
+                    handleChange: this.handleChange
+                })}
+            </div>
+        )
+    }
+}
+
+export default Form;```
