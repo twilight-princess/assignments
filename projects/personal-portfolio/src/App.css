@@ -30,3 +30,13 @@
 code {
   background-color: #282436;
 }
+
+.resume {
+  width: 50%;
+  position: fixed;
+}
+
+iframe {
+  width: 100%;
+  overflow: hidden;
+}

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import Resume from './Resume' 
 
 class App extends Component {
   render() {
@@ -10,7 +11,7 @@ class App extends Component {
           <h1 className="App-title">Darlene Welch</h1>
         </header>
         <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
+          <Resume />
         </p>
       </div>
     );
