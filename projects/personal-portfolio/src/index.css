@@ -1,5 +1,57 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'Varela Round', sans-serif;
+  background-color: lightgray;
+}
+h1 {
+  text-decoration: underline;
+}
+.App {
+  display: fle;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+}
+.App > * {
+  flex: 1 100%;
+}
+#item1 {
+  order: 0;
+}
+#item2 {
+  order: 1;
+}
+#item3 h1 {
+  margin-bottom: -20px;
+}
+#item3 {
+  order: 2;
+  font-size: 15px;
+  width: 50%;
+  margin: auto;
+}
+#item4 {
+  order: 3;
+}
+#item5 {
+  order: 4;
+}
+
+#doc {
+  width: 50%;
+  height: 1096px;
+  border: 2px solid maroon;
+  margin: auto;
+}
+#doc:focus{
+  outline: none;
+}
+#doc[seamless] {
+  display: inline-block;
+}
+
+.proj-title {
+  font-size: 18px;
+  padding-top: 40px;
 }
