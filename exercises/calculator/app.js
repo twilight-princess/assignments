@@ -21,3 +21,8 @@ document.calculator.subtract.onclick = function(){
 document.calculator.multiply.onclick = function(){
     document.getElementById("multiplication").innerHTML = calcMultiply(x.valueAsNumber, y.valueAsNumber)
 }
+function add() {
+    
+    return x + y;
+}
+document.add.click = add;

@@ -1,6 +1,0 @@
-//Pure Functions
-    1) It has no side effects - it doesn't change/update/delete data outside it's own space
-    2) For any given input (x) it will always output (y)
-
-//Immutable Data (READ_ONLY)
-    
