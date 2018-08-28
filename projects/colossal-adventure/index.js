@@ -1,7 +1,11 @@
 var rs = require('readline-sync')
 var rooms = require("./rooms.json")
+<<<<<<< HEAD
 var backpack = []
 var rewards = {
+=======
+var reward = {
+>>>>>>> e617858bae94d560c341c92fa549f82d5500c20c
 	attack: "increase strength", 
 	health: "recover a heart", 
 	defense: "insrease defense", 
@@ -112,6 +116,7 @@ function run() {
 function fight() {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	if (!isSuccess()) {
 =======
 	chance *= 100
@@ -123,12 +128,16 @@ function fight() {
 =======
 	if (!isSuccess()) {
 >>>>>>> update
+=======
+	if (!isSuccess()) {
+>>>>>>> e617858bae94d560c341c92fa549f82d5500c20c
 		console.log('You were unsuccessful. \n')
 	} else {
 		console.log('=D \n')
 	}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 }
 function choice() {
 	var move = rs.question('What do you do? \n')
@@ -162,6 +171,8 @@ module.export getUserName()
 
 =======
 >>>>>>> update
+=======
+>>>>>>> e617858bae94d560c341c92fa549f82d5500c20c
 }
 function choice() {
 	var move = rs.question('What do you do? \n')
@@ -191,7 +202,11 @@ function choice() {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> added readlinesync stuff
 =======
 module.export getUserName()
 >>>>>>> update
+=======
+module.export getUserName()
+>>>>>>> e617858bae94d560c341c92fa549f82d5500c20c

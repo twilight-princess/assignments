@@ -44,10 +44,7 @@ nav {
   background-color: #370031;
   text-align: center;
 }
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> learning react&go&ruby
+
 ul {
   /* display: grid; */
   /* grid-template-rows: repeat(4, 20vh) auto; */
@@ -60,7 +57,7 @@ ul {
   border-bottom: 1px solid #848c8e;
 }
 #walkers {
-<<<<<<< HEAD
+
   border-bottom: 1px solid #848c8e;
 }
 li#puppers {
@@ -69,13 +66,7 @@ li#puppers {
   width: 100%;
   height: 20vh;
 }
-=======
-li {
-  padding: 50px;
-  border-bottom: 1px solid #848c8e;
-}
->>>>>>> responsive website
-=======
+
   border-bottom: 1px solid #848c8e;
 }
 li#puppers {
@@ -84,7 +75,7 @@ li#puppers {
   width: 100%;
   height: 20vh;
 }
->>>>>>> learning react&go&ruby
+
 a {
   font-family: 'Quattrocento', serif;
   font-size: 20px;
@@ -94,20 +85,13 @@ a {
 a:hover {
   text-decoration: underline;
 }
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> learning react&go&ruby
+
 nav img {
   width: 100%;
   height: auto;
 
 }
-<<<<<<< HEAD
-=======
->>>>>>> responsive website
-=======
->>>>>>> learning react&go&ruby
+
 header {
   grid-area: h;
   background-image: url("dogs.jpg");
