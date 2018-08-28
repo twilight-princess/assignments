@@ -1,26 +1,20 @@
 import React, { Component } from 'react';
-import axios from 'axios'
+import axios from 'axios';
+import Form from './Form'
 
 class Todo extends Component {
   state = {
     list: [],
     title: '',
-    description: ''
+    description: '', 
+    price: ''
   }
 
-  handleChange = (e) => {
-    this.setState({ [e.target.name]: e.target.value })
-    console.log(this.state)
+  addItem = item => {
+    this.setState({list: [...this.state.list, item]})
   }
 
-  handleSubmit = () => {
-    axios.post(`https://api.vschool.io/darlene/todo`, {title: this.state.title, description: this.state.description} )
-      .then(res => {
-        console.log(res)
-      })
-  }
-
-  removeTodo = (todo) => {
+  removeTodo = todo => {
     axios.delete(`https://api.vschool.io/darlene/todo/${todo._id}`)
       .then(response => {
         console.log(response + "removed")
@@ -31,7 +25,7 @@ class Todo extends Component {
     axios.get("https://api.vschool.io/darlene/todo")
       .then(response => {
         const list = response.data
-          this.setState({ list })
+          this.setState({list: list})
       })
 
   }
@@ -40,23 +34,12 @@ class Todo extends Component {
     const list = this.state.list
     return (
       <div className="todo styled">
-      <style dangerouslySetInnerHTML={{__html: `
-        .styled { color: purple; }
-        a { color: red; text-decoration: none; }
-        @media (max-width: 600px) {
-          .styled { color: fuchsia; }
-        }
-      `}} />
-        <ol><h1>Todo List</h1>
-          {list.map((todo, i) => <li key={i}>{ todo.title } - { todo.description } <b><a href="" onClick={this.removeTodo(todo)}>X</a></b></li> )}
+        <h1>Todo List</h1>
+        <Form addItem={this.addItem}/>
+        {/* this.props.render(this.state) */}
+        <ol>
+          { list.map((todo, i) => <li key={i}>{ todo.title } - { todo.description } - { todo.price } </li>) }
         </ol>
-        <input type="text" name="title" value={this.state.title} onChange={this.handleChange} />
-        <br />
-        <br />
-        <input type="text" name="description" value={this.state.description} onChange={this.handleChange} />
-        <br />
-        <br />
-        <button type="Submit" onClick={() => { this.handleSubmit }}>Add</button>
       </div>
     );
   }
